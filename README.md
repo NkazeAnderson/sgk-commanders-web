@@ -34,3 +34,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## Supabase setup
+
+1. Install the Supabase client:
+
+   npm install @supabase/supabase-js
+
+2. Create `.env.local` from `.env.local.example` and set the following variables:
+
+   NEXT_PUBLIC_SUPABASE_URL=
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=
+   SUPABASE_SERVICE_ROLE_KEY=
+
+3. The project includes a `lib/supabase.ts` wrapper and an example API route at `app/api/users/route.ts` that uses the server-side service role key to fetch from a `users` table.
+
+4. To use from the UI, `components/users/UsersTable.tsx` will fetch from `/api/users` if no `initialData` is provided.
