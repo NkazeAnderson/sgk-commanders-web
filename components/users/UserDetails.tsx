@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useForm } from "react-hook-form";
 import type { User } from "@/types";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function UserDetails() {
   const params = useParams();
@@ -78,10 +80,18 @@ export default function UserDetails() {
   }
 
   return (
-    <div className="p-4 max-w-3xl">
+    <div className="p-4 max-w-3xl h-full overflow-y-scroll">
       <Card>
         <CardHeader>
           <div className="flex items-center gap-4">
+            <div
+              className=" font-semibold"
+              onClick={() => {
+                router.back();
+              }}
+            >
+              <ArrowLeft />
+            </div>
             <div>
               <Avatar>
                 {user.profile_picture ? (
